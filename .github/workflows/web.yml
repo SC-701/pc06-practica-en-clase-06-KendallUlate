@@ -12,14 +12,14 @@ name: Build and deploy Web App ;)
 
 env:
   AZURE_WEBAPP_NAME: webK    # Change this to your Azure Web App name
-  AZURE_WEBAPP_PACKAGE_PATH: './Vehiculos.WEB/Web'
+  AZURE_WEBAPP_PACKAGE_PATH: './Vehiculo.Web/Web'
   DOTNET_VERSION: '8.0'
 
 on:
   push:
     branches: [ "main" ]
     paths:
-      - 'Vehiculos.WEB/**'
+      - 'Vehiculo.Web/**'
   workflow_dispatch:
 
 permissions:
@@ -50,9 +50,9 @@ jobs:
 
       - name: Build with dotnet
         run: |
-          dotnet build "Vehiculos.WEB/Abstracciones/Abstracciones.csproj" --configuration Release --no-restore
-          dotnet build "Vehiculos.WEB/Reglas/Reglas.csproj" --configuration Release --no-restore
-          dotnet build "Vehiculos.WEB/Web/Web.csproj" --configuration Release --no-restore
+          dotnet build "Vehiculo.Web/Abstracciones/Abstracciones.csproj" --configuration Release --no-restore
+          dotnet build "Vehiculo.Web/Reglas/Reglas.csproj" --configuration Release --no-restore
+          dotnet build "Vehiculo.Web/Web/Web.csproj" --configuration Release --no-restore
 
       - name: Run tests
         run: dotnet test "Vehiculos.WEB/Vehiculos.WEB.sln" --no-restore --verbosity normal --configuration Release || echo "No tests found or test execution failed"
