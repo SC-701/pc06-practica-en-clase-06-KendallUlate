@@ -13,4 +13,3 @@ namespace Abstracciones.Modelos
         public string Nombre { get; set; }
     }
 }
-//
