@@ -46,7 +46,7 @@ jobs:
             ${{ runner.os }}-nuget-
 
       - name: Restore dependencies
-        run: dotnet restore "Vehiculo.Web/Vehiculo.Web.sln"
+        run: dotnet restore "Vehiculo.Web/Vehiculo.Web.slnx"
 
       - name: Build with dotnet
         run: |
@@ -55,7 +55,7 @@ jobs:
           dotnet build "Vehiculo.Web/Web/*.csproj" --configuration Release --no-restore
 
       - name: Run tests
-        run: dotnet test "Vehiculo.Web/Vehiculo.Web.sln" --no-restore --verbosity normal --configuration Release || echo "No tests found or test execution failed"
+        run: dotnet test "Vehiculo.Web/Vehiculo.Web.slnx" --no-restore --verbosity normal --configuration Release || echo "No tests found or test execution failed"
 
       - name: dotnet publish
         run: dotnet publish "Vehiculo.Web/Web/*.csproj" -c Release -o ./publish --no-restore
